@@ -3,4 +3,4 @@
 #include "BetterPortals.h"
 #include "Modules/ModuleManager.h"
 
-IMPLEMENT_PRIMARY_GAME_MODULE( FDefaultGameModuleImpl, BetterPortals, "BetterPortals" );
+IMPLEMENT_GAME_MODULE( FDefaultGameModuleImpl, BetterPortals);
