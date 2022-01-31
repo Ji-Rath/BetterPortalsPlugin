@@ -1,2 +1,0 @@
-C:\Users\Lewis\Desktop\New folder (3)\MyProject2\Plugins\BetterPortals\Intermediate\Build\Win64\UE4Editor\Development\BetterPortalsEditor\Definitions.BetterPortalsEditor.h
-C:\Users\Lewis\Desktop\New folder (3)\MyProject2\Plugins\BetterPortals\Source\BetterPortalsEditor\Public\BetterPortalsEditor.h
