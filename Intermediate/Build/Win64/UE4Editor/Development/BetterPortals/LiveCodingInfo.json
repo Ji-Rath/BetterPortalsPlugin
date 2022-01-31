@@ -1,0 +1,23 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.BetterPortals.cpp.obj": [
+			"BetterPortals.cpp.obj",
+			"BetterPortalsGameModeBase.cpp.obj",
+			"LimitVelocity.cpp.obj",
+			"Portal.cpp.obj",
+			"PortalCharacter.cpp.obj",
+			"PortalPawn.cpp.obj",
+			"PortalPlayer.cpp.obj"
+		],
+		"Module.BetterPortals.gen.cpp.obj": [
+			"BetterPortals.init.gen.cpp.obj",
+			"BetterPortalsGameModeBase.gen.cpp.obj",
+			"LimitVelocity.gen.cpp.obj",
+			"Portal.gen.cpp.obj",
+			"PortalCharacter.gen.cpp.obj",
+			"PortalPawn.gen.cpp.obj",
+			"PortalPlayer.gen.cpp.obj"
+		]
+	}
+}

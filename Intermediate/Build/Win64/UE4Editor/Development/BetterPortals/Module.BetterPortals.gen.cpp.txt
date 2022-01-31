@@ -1,0 +1,37 @@
+C:\Users\Lewis\Desktop\New folder (3)\MyProject2\Plugins\BetterPortals\Intermediate\Build\Win64\UE4Editor\Development\BetterPortals\Definitions.BetterPortals.h
+C:/Users/Lewis/Desktop/New folder (3)/MyProject2/Plugins/BetterPortals/Intermediate/Build/Win64/UE4Editor/Inc/BetterPortals/BetterPortals.init.gen.cpp
+E:\Software\Epic Games\UE_4.26\Engine\Source\Runtime\CoreUObject\Public\UObject/GeneratedCppIncludes.h
+E:\Software\Epic Games\UE_4.26\Engine\Source\Runtime\CoreUObject\Public\UObject/MetaData.h
+C:/Users/Lewis/Desktop/New folder (3)/MyProject2/Plugins/BetterPortals/Intermediate/Build/Win64/UE4Editor/Inc/BetterPortals/BetterPortalsGameModeBase.gen.cpp
+C:\Users\Lewis\Desktop\New folder (3)\MyProject2\Plugins\BetterPortals\Source\BetterPortals/BetterPortalsGameModeBase.h
+C:\Users\Lewis\Desktop\New folder (3)\MyProject2\Plugins\BetterPortals\Source\BetterPortals\Portal.h
+C:\Users\Lewis\Desktop\New folder (3)\MyProject2\Plugins\BetterPortals\Source\BetterPortals\HelperMacros.h
+C:\Users\Lewis\Desktop\New folder (3)\MyProject2\Plugins\BetterPortals\Intermediate\Build\Win64\UE4Editor\Inc\BetterPortals\Portal.generated.h
+C:\Users\Lewis\Desktop\New folder (3)\MyProject2\Plugins\BetterPortals\Source\BetterPortals\PortalPawn.h
+E:\Software\Epic Games\UE_4.26\Engine\Source\Runtime\PhysicsCore\Public\PhysicalMaterials/PhysicalMaterial.h
+E:\Software\Epic Games\UE_4.26\Engine\Source\Runtime\PhysicsCore\Public\PhysicsSettingsEnums.h
+E:\Software\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\PhysicsCore\PhysicsSettingsEnums.generated.h
+E:\Software\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\PhysicsCore\PhysicalMaterial.generated.h
+C:\Users\Lewis\Desktop\New folder (3)\MyProject2\Plugins\BetterPortals\Intermediate\Build\Win64\UE4Editor\Inc\BetterPortals\PortalPawn.generated.h
+E:\Software\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/GameModeBase.h
+E:\Software\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\Engine/ServerStatReplicator.h
+E:\Software\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ServerStatReplicator.generated.h
+E:\Software\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\GameModeBase.generated.h
+C:\Users\Lewis\Desktop\New folder (3)\MyProject2\Plugins\BetterPortals\Intermediate\Build\Win64\UE4Editor\Inc\BetterPortals\BetterPortalsGameModeBase.generated.h
+C:/Users/Lewis/Desktop/New folder (3)/MyProject2/Plugins/BetterPortals/Intermediate/Build/Win64/UE4Editor/Inc/BetterPortals/LimitVelocity.gen.cpp
+C:\Users\Lewis\Desktop\New folder (3)\MyProject2\Plugins\BetterPortals\Source\BetterPortals/LimitVelocity.h
+C:\Users\Lewis\Desktop\New folder (3)\MyProject2\Plugins\BetterPortals\Intermediate\Build\Win64\UE4Editor\Inc\BetterPortals\LimitVelocity.generated.h
+C:/Users/Lewis/Desktop/New folder (3)/MyProject2/Plugins/BetterPortals/Intermediate/Build/Win64/UE4Editor/Inc/BetterPortals/Portal.gen.cpp
+C:/Users/Lewis/Desktop/New folder (3)/MyProject2/Plugins/BetterPortals/Intermediate/Build/Win64/UE4Editor/Inc/BetterPortals/PortalCharacter.gen.cpp
+C:\Users\Lewis\Desktop\New folder (3)\MyProject2\Plugins\BetterPortals\Source\BetterPortals/PortalCharacter.h
+E:\Software\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/Character.h
+E:\Software\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/CharacterMovementReplication.h
+E:\Software\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\CharacterMovementReplication.generated.h
+E:\Software\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/RootMotionSource.h
+E:\Software\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\RootMotionSource.generated.h
+E:\Software\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\Character.generated.h
+C:\Users\Lewis\Desktop\New folder (3)\MyProject2\Plugins\BetterPortals\Intermediate\Build\Win64\UE4Editor\Inc\BetterPortals\PortalCharacter.generated.h
+C:/Users/Lewis/Desktop/New folder (3)/MyProject2/Plugins/BetterPortals/Intermediate/Build/Win64/UE4Editor/Inc/BetterPortals/PortalPawn.gen.cpp
+C:/Users/Lewis/Desktop/New folder (3)/MyProject2/Plugins/BetterPortals/Intermediate/Build/Win64/UE4Editor/Inc/BetterPortals/PortalPlayer.gen.cpp
+C:\Users\Lewis\Desktop\New folder (3)\MyProject2\Plugins\BetterPortals\Source\BetterPortals/PortalPlayer.h
+C:\Users\Lewis\Desktop\New folder (3)\MyProject2\Plugins\BetterPortals\Intermediate\Build\Win64\UE4Editor\Inc\BetterPortals\PortalPlayer.generated.h

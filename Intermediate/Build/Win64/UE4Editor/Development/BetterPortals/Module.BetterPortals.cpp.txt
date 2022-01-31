@@ -1,0 +1,92 @@
+C:\Users\Lewis\Desktop\New folder (3)\MyProject2\Plugins\BetterPortals\Intermediate\Build\Win64\UE4Editor\Development\BetterPortals\Definitions.BetterPortals.h
+C:/Users/Lewis/Desktop/New folder (3)/MyProject2/Plugins/BetterPortals/Source/BetterPortals/BetterPortals.cpp
+C:\Users\Lewis\Desktop\New folder (3)\MyProject2\Plugins\BetterPortals\Source\BetterPortals\BetterPortals.h
+C:/Users/Lewis/Desktop/New folder (3)/MyProject2/Plugins/BetterPortals/Source/BetterPortals/BetterPortalsGameModeBase.cpp
+C:\Users\Lewis\Desktop\New folder (3)\MyProject2\Plugins\BetterPortals\Source\BetterPortals\BetterPortalsGameModeBase.h
+C:\Users\Lewis\Desktop\New folder (3)\MyProject2\Plugins\BetterPortals\Source\BetterPortals\Portal.h
+C:\Users\Lewis\Desktop\New folder (3)\MyProject2\Plugins\BetterPortals\Source\BetterPortals\HelperMacros.h
+C:\Users\Lewis\Desktop\New folder (3)\MyProject2\Plugins\BetterPortals\Intermediate\Build\Win64\UE4Editor\Inc\BetterPortals\Portal.generated.h
+C:\Users\Lewis\Desktop\New folder (3)\MyProject2\Plugins\BetterPortals\Source\BetterPortals\PortalPawn.h
+E:\Software\Epic Games\UE_4.26\Engine\Source\Runtime\PhysicsCore\Public\PhysicalMaterials/PhysicalMaterial.h
+E:\Software\Epic Games\UE_4.26\Engine\Source\Runtime\PhysicsCore\Public\PhysicsSettingsEnums.h
+E:\Software\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\PhysicsCore\PhysicsSettingsEnums.generated.h
+E:\Software\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\PhysicsCore\PhysicalMaterial.generated.h
+C:\Users\Lewis\Desktop\New folder (3)\MyProject2\Plugins\BetterPortals\Intermediate\Build\Win64\UE4Editor\Inc\BetterPortals\PortalPawn.generated.h
+E:\Software\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/GameModeBase.h
+E:\Software\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\Engine/ServerStatReplicator.h
+E:\Software\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ServerStatReplicator.generated.h
+E:\Software\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\GameModeBase.generated.h
+C:\Users\Lewis\Desktop\New folder (3)\MyProject2\Plugins\BetterPortals\Intermediate\Build\Win64\UE4Editor\Inc\BetterPortals\BetterPortalsGameModeBase.generated.h
+E:\Software\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Public\EngineUtils.h
+E:\Software\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\Camera/CameraComponent.h
+E:\Software\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\CameraComponent.generated.h
+C:/Users/Lewis/Desktop/New folder (3)/MyProject2/Plugins/BetterPortals/Source/BetterPortals/LimitVelocity.cpp
+C:\Users\Lewis\Desktop\New folder (3)\MyProject2\Plugins\BetterPortals\Source\BetterPortals\LimitVelocity.h
+C:\Users\Lewis\Desktop\New folder (3)\MyProject2\Plugins\BetterPortals\Intermediate\Build\Win64\UE4Editor\Inc\BetterPortals\LimitVelocity.generated.h
+C:/Users/Lewis/Desktop/New folder (3)/MyProject2/Plugins/BetterPortals/Source/BetterPortals/Portal.cpp
+E:\Software\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\Components/CapsuleComponent.h
+E:\Software\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\Components/ShapeComponent.h
+E:\Software\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ShapeComponent.generated.h
+E:\Software\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\CapsuleComponent.generated.h
+E:\Software\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\Components/SceneCaptureComponent2D.h
+E:\Software\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\Components/SceneCaptureComponent.h
+E:\Software\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\SceneCaptureComponent.generated.h
+E:\Software\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\SceneCaptureComponent2D.generated.h
+E:\Software\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\Components/BoxComponent.h
+E:\Software\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\BoxComponent.generated.h
+E:\Software\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\PhysicsEngine/PhysicsHandleComponent.h
+E:\Software\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\PhysicsHandleComponent.generated.h
+E:\Software\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\Engine/CanvasRenderTarget2D.h
+E:\Software\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\Engine/TextureRenderTarget2D.h
+E:\Software\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\Engine/TextureRenderTarget.h
+E:\Software\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\TextureRenderTarget.generated.h
+E:\Software\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\TextureRenderTarget2D.generated.h
+E:\Software\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\CanvasRenderTarget2D.generated.h
+C:\Users\Lewis\Desktop\New folder (3)\MyProject2\Plugins\BetterPortals\Source\BetterPortals\PortalCharacter.h
+E:\Software\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/Character.h
+E:\Software\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/CharacterMovementReplication.h
+E:\Software\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\CharacterMovementReplication.generated.h
+E:\Software\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/RootMotionSource.h
+E:\Software\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\RootMotionSource.generated.h
+E:\Software\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\Character.generated.h
+C:\Users\Lewis\Desktop\New folder (3)\MyProject2\Plugins\BetterPortals\Intermediate\Build\Win64\UE4Editor\Inc\BetterPortals\PortalCharacter.generated.h
+C:\Users\Lewis\Desktop\New folder (3)\MyProject2\Plugins\BetterPortals\Source\BetterPortals\PortalPlayer.h
+C:\Users\Lewis\Desktop\New folder (3)\MyProject2\Plugins\BetterPortals\Intermediate\Build\Win64\UE4Editor\Inc\BetterPortals\PortalPlayer.generated.h
+E:\Software\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Public\DrawDebugHelpers.h
+E:\Software\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\Kismet/KismetRenderingLibrary.h
+E:\Software\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\KismetRenderingLibrary.generated.h
+E:\Software\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\Kismet/GameplayStatics.h
+E:\Software\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\Kismet/KismetSystemLibrary.h
+E:\Software\Epic Games\UE_4.26\Engine\Source\Runtime\CoreUObject\Public\UObject/PropertyAccessUtil.h
+E:\Software\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\Engine/CollisionProfile.h
+E:\Software\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\CollisionProfile.generated.h
+E:\Software\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\KismetSystemLibrary.generated.h
+E:\Software\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\Sound/DialogueTypes.h
+E:\Software\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\DialogueTypes.generated.h
+E:\Software\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\Kismet\GameplayStaticsTypes.h
+E:\Software\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\GameplayStaticsTypes.generated.h
+E:\Software\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\GameplayStatics.generated.h
+E:\Software\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/CharacterMovementComponent.h
+E:\Software\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\AI/Navigation/NavigationAvoidanceTypes.h
+E:\Software\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\NavigationAvoidanceTypes.generated.h
+E:\Software\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Public\AI/RVOAvoidanceInterface.h
+E:\Software\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\RVOAvoidanceInterface.generated.h
+E:\Software\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/PawnMovementComponent.h
+E:\Software\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/NavMovementComponent.h
+E:\Software\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\AI/Navigation/PathFollowingAgentInterface.h
+E:\Software\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\PathFollowingAgentInterface.generated.h
+E:\Software\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/MovementComponent.h
+E:\Software\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\MovementComponent.generated.h
+E:\Software\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\NavMovementComponent.generated.h
+E:\Software\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\PawnMovementComponent.generated.h
+E:\Software\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\Interfaces/NetworkPredictionInterface.h
+E:\Software\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\NetworkPredictionInterface.generated.h
+E:\Software\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\CharacterMovementComponent.generated.h
+C:/Users/Lewis/Desktop/New folder (3)/MyProject2/Plugins/BetterPortals/Source/BetterPortals/PortalCharacter.cpp
+E:\Software\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\Kismet/KismetMathLibrary.h
+E:\Software\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\KismetMathLibrary.generated.h
+E:\Software\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\Kismet\KismetMathLibrary.inl
+C:/Users/Lewis/Desktop/New folder (3)/MyProject2/Plugins/BetterPortals/Source/BetterPortals/PortalPawn.cpp
+E:\Software\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/SpringArmComponent.h
+E:\Software\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\SpringArmComponent.generated.h
+C:/Users/Lewis/Desktop/New folder (3)/MyProject2/Plugins/BetterPortals/Source/BetterPortals/PortalPlayer.cpp
