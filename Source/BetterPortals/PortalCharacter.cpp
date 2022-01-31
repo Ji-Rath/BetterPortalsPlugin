@@ -74,7 +74,7 @@ void APortalCharacter::Tick(float DeltaTime)
 	UpdateMouseMovement(DeltaTime);
 
 	// Update physics handle location if something is being held.
-	if (physicsHandle->GetGrabbedComponent() != nullptr)
+	if (physicsHandle && physicsHandle->GetGrabbedComponent() != nullptr)
 	{
 		// Update handle offset.
 		FVector newLoc = camera->GetComponentTransform().TransformPositionNoScale(originalRelativeLocation);
@@ -86,8 +86,11 @@ void APortalCharacter::Tick(float DeltaTime)
 	currLinVel = GetCapsuleComponent()->GetPhysicsLinearVelocity();
 	currRotVel = GetCapsuleComponent()->GetPhysicsAngularVelocityInDegrees();
 
-	// Update last location.
-	lastLocation = camera->GetComponentLocation();
+	if (camera)
+	{
+		// Update last location.
+		lastLocation = camera->GetComponentLocation();
+	}
 
 	if (doubleJump && jumped && IsGrounded())
 	{
@@ -312,10 +315,11 @@ void APortalCharacter::ReturnToOrientation()
 void APortalCharacter::UpdateMouseMovement(float deltaTime)
 {
 	// Get current mouse axis values.
-	float mouseX = InputComponent->GetAxisValue("Turn");
+	float mouseX = InputComponent->GetAxisValue("LookRight");
 	float mouseY = InputComponent->GetAxisValue("LookUp");
 
 	// Camera movement pitch.
+	if (!camera) { return; }
 	FRotator newRelativeCameraRot = camera->GetRelativeTransform().Rotator();
 	newRelativeCameraRot.Pitch += (mouseY * mouseSpeed);
 	newRelativeCameraRot.Yaw = 0.0f;
@@ -341,7 +345,7 @@ bool APortalCharacter::PortalTraceSingleExample(struct FHitResult& outHit, const
 	// If a portal was hit perform another trace from said portal with converted start and end positions.
 	if (outHit.bBlockingHit)
 	{
-		if (APortal* wasPortal = Cast<APortal>(outHit.Actor))
+		if (APortal* wasPortal = Cast<APortal>(outHit.GetActor()))
 		{
 			beenThroughPortal = true;
 			APortal* lastPortal = wasPortal;
@@ -358,7 +362,7 @@ bool APortalCharacter::PortalTraceSingleExample(struct FHitResult& outHit, const
 				GetWorld()->LineTraceSingleByObjectType(outHit, newStart, newEnd, collObjParams, collParams);
 
 				// If another portal was hit continue otherwise exit.
-				if (!Cast<APortal>(outHit.Actor)) return outHit.bBlockingHit;
+				if (!Cast<APortal>(outHit.GetActor())) return outHit.bBlockingHit;
 			}
 		}
 	}
