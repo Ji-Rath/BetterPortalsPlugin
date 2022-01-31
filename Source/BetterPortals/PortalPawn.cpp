@@ -530,7 +530,7 @@ bool APortalPawn::PortalTraceSingleExample(struct FHitResult& outHit, const FVec
 	// If a portal was hit perform another trace from said portal with converted start and end positions.
 	if (outHit.bBlockingHit)
 	{
-		if (APortal* wasPortal = Cast<APortal>(outHit.Actor))
+		if (APortal* wasPortal = Cast<APortal>(outHit.GetActor()))
 		{
 			beenThroughPortal = true;
 			APortal* lastPortal = wasPortal;
@@ -547,7 +547,7 @@ bool APortalPawn::PortalTraceSingleExample(struct FHitResult& outHit, const FVec
 				GetWorld()->LineTraceSingleByObjectType(outHit, newStart, newEnd, collObjParams, collParams);
 	
 				// If another portal was hit continue otherwise exit.
-				if (!Cast<APortal>(outHit.Actor)) return outHit.bBlockingHit;
+				if (!Cast<APortal>(outHit.GetActor())) return outHit.bBlockingHit;
 			}
 		}
 	}
