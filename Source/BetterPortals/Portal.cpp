@@ -332,6 +332,21 @@ void APortal::CreatePortalTexture()
 	portalCapture->TextureTarget = renderTarget;
 }
 
+void APortal::UpdatePortalResolution(float PercentRes)
+{
+	PercentRes = FMath::Clamp(PercentRes, 0.f, 1.f);
+	if (renderTarget && portalController)
+	{
+		int32 viewportX, viewportY;
+		portalController->GetViewportSize(viewportX, viewportY);
+		viewportX *= PercentRes;
+		viewportY *= PercentRes;
+		renderTarget->ResizeTarget(viewportX, viewportY);
+		portalMaterial->SetTextureParameterValue("RT_Portal", renderTarget);
+	}
+	
+}
+
 void APortal::ClearPortalView()
 {
 	// Force portal to be a random color that can be found as mask.

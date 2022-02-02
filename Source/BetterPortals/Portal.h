@@ -175,6 +175,10 @@ private:
 	/* Create a render texture target for this portal. */
 	void CreatePortalTexture();
 
+	/* Update the resolution percent target of the portal. Clamped at 0-1 */
+	UFUNCTION(BlueprintCallable)
+	void UpdatePortalResolution(float PercentRes);
+
 	/* Updates the pawns tracking for going through portals. Cannot rely on detecting overlaps. */
 	void UpdatePawnTracking();
 
@@ -222,7 +226,7 @@ public:
 	void OnPortalMeshOverlapEnd(UPrimitiveComponent* portalMeshHit, AActor* overlappedActor, UPrimitiveComponent* overlappedComp, int32 otherBodyIndex);
 	
 	/* Is this portal active. */
-	UFUNCTION(BlueprintCallable, Category = "Portal")
+	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "Portal")
 	bool IsActive();
 
 	/* Set if the portal is active or in-active. */
