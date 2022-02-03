@@ -9,30 +9,6 @@
 /* Logging category for this class. */
 DECLARE_LOG_CATEGORY_EXTERN(LogPortalCharacter, Log, All);
 
-/* Structure to hold crouching lerp information. */
-USTRUCT(BlueprintType)
-struct FCrouchSettings
-{
-	GENERATED_BODY()
-
-public:
-
-	FTimerHandle crouchTimerHandle;
-	float timeToCrouch;
-	float timeCrouchStarted;
-	float startingHeight;
-	float endingHeight;
-
-public:
-
-	/* Default Constructor. */
-	FCrouchSettings(float time = 0.0f, float timeStarted = 0.0f)
-	{
-		timeToCrouch = time;
-		timeCrouchStarted = timeStarted;
-	}
-};
-
 UCLASS()
 class BETTERPORTALS_API APortalCharacter : public ACharacter
 {
@@ -52,22 +28,6 @@ public:
 	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, Category = "Movement")
 	class UPhysicsHandleComponent* physicsHandle;
 
-	/* Speed multiplier from base speed for crouching movement */
-	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, Category = "Movement")
-	float crouchMultiplier;
-
-	/* Speed multiplier from base speed for running movement */
-	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, Category = "Movement")
-	float runMultiplier;
-
-	/* Speed at which to transition to a crouched state. */
-	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, Category = "Movement")
-	float crouchSpeed;
-
-	/* Mosue camera movement speed. */
-	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, Category = "Movement")
-	float mouseSpeed;
-
 	/* Distance player can interact with objects from. */
 	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, Category = "Movement")
 	float interactDistance;
@@ -76,19 +36,10 @@ public:
 	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, Category = "Movement")
 	float orientationCorrectionTime;
 
-	/* Can player double jump? */
-	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, Category = "Movement")
-	bool doubleJump;
-
 	// Last frames camera location in the world.
 	FVector lastLocation;
 
 private:
-
-	float startMaxWalkSpeed;
-	int jumpCount; // Track number of times jumped while in air.
-	bool jumped;
-	FCrouchSettings crouchSettings; // Current crouch info.
 	FVector originalRelativeLocation;
 	FVector lastDirection;
 	FRotator originalRelativeRotation;
@@ -118,25 +69,6 @@ public:
 
 	/* ========== Movement input functions. ============== */
 
-	/* Jump action. */
-	template<bool pressed> void JumpAction() { JumpAction(pressed); }
-	UFUNCTION(Category = "Movement")
-	void JumpAction(bool pressed);
-
-	/* Run action. */
-	template<bool pressed> void RunAction() { RunAction(pressed); }
-	UFUNCTION(Category = "Movement")
-	void RunAction(bool pressed);
-
-	/* Crouch action. */
-	template<bool pressed> void CrouchAction() { CrouchAction(pressed); }
-	UFUNCTION(Category = "Movement")
-	void CrouchAction(bool pressed);
-
-	/* Crouch lerp function. */
-	UFUNCTION(Category = "Movement")
-	void CrouchLerp();
-
 	/* Interact action. */
 	template<bool pressed> void InteractAction() { InteractAction(pressed); }
 	UFUNCTION(BlueprintCallable, Category = "Interaction")
@@ -151,23 +83,8 @@ public:
 	UFUNCTION(Category = "Movement")
 	void FireAction(bool pressed);
 
-	/* Move forward axis. */
-	UFUNCTION(Category = "Movement")
-	void Forward(float val);
-
-	/* Move right axis. */
-	UFUNCTION(Category = "Movement")
-	void Right(float val);
-
-	/* Rotational movement along the yaw axis with the mouse. */
-	UFUNCTION(Category = "Movement")
-	void Turn(float val);
-
-	/* Rotational movement along the roll axis with the mouse. */
-	UFUNCTION(Category = "Movement")
-	void LookUp(float val);
-
 	/* Perform ground check every frame to check if the player is actually grounded. */
+	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "Movement")
 	bool IsGrounded();
 
 	/* Updates the offset from the player that a held physics object should be at. Checks if this offset needs translating to the other side of a portal.

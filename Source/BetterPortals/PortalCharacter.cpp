@@ -2,17 +2,15 @@
 
 #include "PortalCharacter.h"
 #include "Components/CapsuleComponent.h"
-#include "Components/StaticMeshComponent.h"
 #include "Components/SkeletalMeshComponent.h"
 #include "Components/InputComponent.h"
 #include "PhysicsEngine/PhysicsHandleComponent.h"
 #include "Camera/CameraComponent.h"
 #include "Engine/EngineTypes.h"
-#include "DrawDebugHelpers.h"
 #include "TimerManager.h"
 #include "Portal.h"
-#include "Kismet/KismetMathLibrary.h"
 #include "GameFramework/CharacterMovementComponent.h"
+#include "GameFramework/Controller.h"
 
 DEFINE_LOG_CATEGORY(LogPortalCharacter);
 
@@ -46,21 +44,13 @@ APortalCharacter::APortalCharacter()
 	orientation = false;
 
 	// Setup default variables.
-	crouchMultiplier = 0.5f;
-	runMultiplier = 1.5f;
-	crouchSpeed = 0.4f;
 	interactDistance = 2000.0f;
-	mouseSpeed = 1.4f;
 	orientationCorrectionTime = 1.8f;
-	doubleJump = false;
-	jumpCount = 0;
 }
 
 void APortalCharacter::BeginPlay()
 {
 	Super::BeginPlay();
-
-	startMaxWalkSpeed = GetCharacterMovement()->MaxWalkSpeed;
 }
 
 void APortalCharacter::Tick(float DeltaTime)
@@ -91,12 +81,6 @@ void APortalCharacter::Tick(float DeltaTime)
 		// Update last location.
 		lastLocation = camera->GetComponentLocation();
 	}
-
-	if (doubleJump && jumped && IsGrounded())
-	{
-		jumped = false;
-		jumpCount = 0;
-	}
 }
 
 void APortalCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
@@ -104,96 +88,10 @@ void APortalCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
 	// Setup action bindings.
-	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &APortalCharacter::JumpAction<true>);
-	PlayerInputComponent->BindAction("Jump", IE_Released, this, &APortalCharacter::JumpAction<false>);
-	PlayerInputComponent->BindAction("Run", IE_Pressed, this, &APortalCharacter::RunAction<true>);
-	PlayerInputComponent->BindAction("Run", IE_Released, this, &APortalCharacter::RunAction<false>);
-	PlayerInputComponent->BindAction("Crouch", IE_Pressed, this, &APortalCharacter::CrouchAction<true>);
-	PlayerInputComponent->BindAction("Crouch", IE_Released, this, &APortalCharacter::CrouchAction<false>);
 	PlayerInputComponent->BindAction("Interact", IE_Pressed, this, &APortalCharacter::InteractAction<true>);
 	PlayerInputComponent->BindAction("Interact", IE_Released, this, &APortalCharacter::InteractAction<false>);
 	PlayerInputComponent->BindAction("Fire", IE_Pressed, this, &APortalCharacter::FireAction<true>);
 	PlayerInputComponent->BindAction("Fire", IE_Released, this, &APortalCharacter::FireAction<false>);
-
-	// Setup axis bindings.
-	PlayerInputComponent->BindAxis("MoveForward", this, &APortalCharacter::Forward);
-	PlayerInputComponent->BindAxis("MoveRight", this, &APortalCharacter::Right);
-	PlayerInputComponent->BindAxis("Turn", this, &APortalCharacter::Turn);
-	PlayerInputComponent->BindAxis("LookUp", this, &APortalCharacter::LookUp);
-}
-
-void APortalCharacter::JumpAction(bool pressed)
-{
-	if (doubleJump ? jumpCount < 1 : IsGrounded())
-	{
-		Jump();
-		jumpCount++;
-		jumped = true;
-	}
-}
-
-void APortalCharacter::RunAction(bool pressed)
-{
-	if (pressed)
-	{
-		GetCharacterMovement()->MaxWalkSpeed = startMaxWalkSpeed * runMultiplier;
-	}
-	else
-	{
-		GetCharacterMovement()->MaxWalkSpeed = startMaxWalkSpeed * crouchMultiplier;
-	}
-}
-
-void APortalCharacter::CrouchAction(bool pressed)
-{
-	// Clear any timers.
-	GetWorld()->GetTimerManager().ClearTimer(crouchSettings.crouchTimerHandle);
-
-	// Setup starting variables.
-	crouchSettings.timeCrouchStarted = GetWorld()->GetTimeSeconds();
-	crouchSettings.timeToCrouch = crouchSpeed;
-	crouchSettings.startingHeight = GetCapsuleComponent()->GetScaledCapsuleHalfHeight();
-
-	// Crouch Action - Pressed
-	if (pressed)
-	{
-		// Set crouched height.
-		crouchSettings.endingHeight = GetCharacterMovement()->CrouchedHalfHeight;
-
-		// Start new crouch timer lerp.
-		FTimerDelegate crouchTimerDelegate;
-		crouchTimerDelegate.BindUFunction(this, "crouchSettings");
-		GetWorld()->GetTimerManager().SetTimer(crouchSettings.crouchTimerHandle, crouchTimerDelegate, 0.01f, true);
-		GetCharacterMovement()->MaxWalkSpeed = startMaxWalkSpeed * crouchMultiplier;
-	}
-	// Crouch Action - Released
-	else
-	{
-		// Set un-crouched height.
-		crouchSettings.endingHeight = GetCapsuleComponent()->GetScaledCapsuleHalfHeight();
-
-		// Start new crouch timer lerp.
-		FTimerDelegate crouchTimerDelegate;
-		crouchTimerDelegate.BindUFunction(this, "crouchSettings");
-		GetWorld()->GetTimerManager().SetTimer(crouchSettings.crouchTimerHandle, crouchTimerDelegate, 0.01f, true);
-		GetCharacterMovement()->MaxWalkSpeed = startMaxWalkSpeed;
-	}
-}
-
-void APortalCharacter::CrouchLerp()
-{
-	// Crouch or un-crouch the player.
-	float crouchAlpha = (GetWorld()->GetTimeSeconds() - crouchSettings.timeCrouchStarted) / crouchSettings.timeToCrouch;
-	float lastHeight = GetCapsuleComponent()->GetScaledCapsuleHalfHeight();
-	float lerpedHalfHeight = FMath::Lerp(crouchSettings.startingHeight, crouchSettings.endingHeight, crouchAlpha);
-	GetCapsuleComponent()->SetCapsuleHalfHeight(lerpedHalfHeight, false);
-	GetCapsuleComponent()->AddWorldOffset(FVector(0.0f, 0.0f, lerpedHalfHeight - lastHeight), false, nullptr, ETeleportType::TeleportPhysics);
-
-	// End timer.
-	if (crouchAlpha >= 1.0f)
-	{
-		GetWorld()->GetTimerManager().ClearTimer(crouchSettings.crouchTimerHandle);
-	}
 }
 
 void APortalCharacter::InteractAction(bool pressed)
@@ -266,24 +164,6 @@ void APortalCharacter::FireAction(bool pressed)
 	}
 }
 
-void APortalCharacter::Forward(float val)
-{
-	GetCharacterMovement()->AddInputVector(GetCapsuleComponent()->GetForwardVector() * val, false);
-}
-
-void APortalCharacter::Right(float val)
-{
-	GetCharacterMovement()->AddInputVector(GetCapsuleComponent()->GetRightVector() * val, false);
-}
-
-void APortalCharacter::Turn(float val)
-{
-}
-
-void APortalCharacter::LookUp(float val)
-{
-}
-
 bool APortalCharacter::IsGrounded()
 {
 	return !GetMovementComponent()->IsFalling();
@@ -309,26 +189,17 @@ void APortalCharacter::ReturnToOrientation()
 	FQuat target = FRotator(0.0f, currentOrientation.Yaw, 0.0f).Quaternion();
 	FQuat newOrientation = FQuat::Slerp(currentOrientation.Quaternion(), target, alpha);
 	GetCapsuleComponent()->SetWorldRotation(newOrientation.Rotator(), false, nullptr, ETeleportType::TeleportPhysics);
+	
 	if (alpha >= 1.0f) orientation = false;
 }
 
 void APortalCharacter::UpdateMouseMovement(float deltaTime)
 {
-	// Get current mouse axis values.
-	float mouseX = InputComponent->GetAxisValue("LookRight");
-	float mouseY = InputComponent->GetAxisValue("LookUp");
+	const FRotator ControlRotation = GetController()->GetControlRotation();
 
 	// Camera movement pitch.
 	if (!camera) { return; }
-	FRotator newRelativeCameraRot = camera->GetRelativeTransform().Rotator();
-	newRelativeCameraRot.Pitch += (mouseY * mouseSpeed);
-	newRelativeCameraRot.Yaw = 0.0f;
-	newRelativeCameraRot.Roll = 0.0f;
-	newRelativeCameraRot.Pitch = FMath::Clamp(newRelativeCameraRot.Pitch, -85.f, 85.f);
-	camera->SetRelativeRotation(newRelativeCameraRot);
-
-	// Camera movement yaw.
-	GetCapsuleComponent()->AddLocalRotation(FRotator(0.0f, (mouseX * mouseSpeed), 0.0f));
+	camera->SetRelativeRotation(ControlRotation);
 }
 
 bool APortalCharacter::PortalTraceSingleExample(struct FHitResult& outHit, const FVector& start, const FVector& end, ECollisionChannel objectType, int maxPortalTrace)
