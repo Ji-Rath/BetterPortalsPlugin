@@ -255,15 +255,15 @@ public:
 	void UpdateWorldOffset();
 
 	/* Is the location in-front of this portal? */
-	UFUNCTION(BlueprintCallable, Category = "Portal")
+	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "Portal")
 	bool IsInfront(FVector location);
 
 	/* Convert a given velocity vector to the target portal. */
-	UFUNCTION(BlueprintCallable, Category = "Portal")
+	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "Portal")
 	FVector ConvertDirectionToTarget(FVector direction);
 
 	/* Convert a given location to the target portal. */
-	UFUNCTION(BlueprintCallable, Category = "Portal")
+	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "Portal")
 	FVector ConvertLocationToPortal(FVector location, APortal* currentPortal, APortal* endPortal, bool flip = true);
 
 	/* Convert a given rotation to the target portal. */
@@ -271,14 +271,14 @@ public:
 	FRotator ConvertRotationToPortal(FRotator rotation, APortal* currentPortal, APortal* endPortal, bool flip = true);
 
 	/* Is a given location inside of this portals box. */
-	UFUNCTION(BlueprintCallable, Category = "Portal")
+	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "Portal")
 	bool LocationInsidePortal(FVector location);
 
 	/* Number of actors currently being tracked and duplicated at the target portal. */
-	UFUNCTION(BlueprintCallable, Category = "Portal")
+	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "Portal")
 	int GetNumberOfTrackedActors();
 
 	/* Returns the current duplicate map for this portal. All static meshes that are duplicated and tracked are added to this list. */
-	UFUNCTION(BlueprintCallable, Category = "Portal")
+	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "Portal")
 	TMap<AActor*, AActor*>& GetDuplicateMap();
 };
