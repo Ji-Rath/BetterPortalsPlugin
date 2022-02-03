@@ -334,7 +334,7 @@ void APortal::CreatePortalTexture()
 
 void APortal::UpdatePortalResolution(float PercentRes)
 {
-	PercentRes = FMath::Clamp(PercentRes, 0.f, 1.f);
+	PercentRes = FMath::Clamp(PercentRes, 0.1f, 1.f);
 	if (renderTarget && portalController)
 	{
 		int32 viewportX, viewportY;
