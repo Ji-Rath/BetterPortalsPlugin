@@ -1,19 +1,15 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 #include "Portal.h"
 #include "Components/CapsuleComponent.h"
-#include "Components/StaticMeshComponent.h"
 #include "Components/SceneCaptureComponent2D.h"
 #include "Components/BoxComponent.h"
 #include "PhysicsEngine/PhysicsHandleComponent.h"
-#include "GameFramework/PlayerController.h"
 #include "Materials/MaterialInstanceDynamic.h"
 #include "UObject/UObjectGlobals.h"
 #include "Engine/CanvasRenderTarget2D.h"
 #include "Engine/Engine.h"
 #include "Camera/CameraComponent.h"
-#include "Engine/LocalPlayer.h"
 #include "Math/Plane.h"
-#include "PortalPawn.h"
 #include "PortalCharacter.h"
 #include "PortalPlayer.h"
 #include "DrawDebugHelpers.h"
@@ -511,9 +507,7 @@ void APortal::TeleportObject(AActor* actor)
 	if (actor == nullptr) return;
 
 	// Perform a camera cut so the teleportation is seamless with the render functions.
-	UPortalPlayer* portalPlayer = Cast<UPortalPlayer>(portalController->GetLocalPlayer());
-	CHECK_DESTROY(LogPortal, !portalPlayer, "TeleportObject: Portal player class couldnt be found in the portal %s.", *GetName());
-	portalPlayer->CameraCut();
+	portalCapture->bCameraCutThisFrame = true;
 
 	// Teleport the physics object. Teleport both position and relative velocity.
 	UPrimitiveComponent* primComp = Cast<UPrimitiveComponent>(actor->GetRootComponent());
