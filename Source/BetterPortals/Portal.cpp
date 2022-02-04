@@ -364,10 +364,16 @@ void APortal::UpdatePortalView()
 	portalCapture->ClipPlaneBase = pTargetPortal->portalMesh->GetComponentLocation() - (portalCapture->ClipPlaneNormal * 1.0f);
 
 	// Get the Projection Matrix from the players camera view settings.
-	UPortalPlayer* portalPlayer = Cast<UPortalPlayer>(portalController->GetLocalPlayer());
-	CHECK_DESTROY(LogPortal, !portalPlayer, "UpdatePortalView: Portal player class couldn't be found in the portal %s.", *GetName());
+	//UPortalPlayer* portalPlayer = Cast<UPortalPlayer>(portalController->GetLocalPlayer());
+	//CHECK_DESTROY(LogPortal, !portalPlayer, "UpdatePortalView: Portal player class couldn't be found in the portal %s.", *GetName());
 	portalCapture->bUseCustomProjectionMatrix = true;
-	portalCapture->CustomProjectionMatrix = portalPlayer->GetCameraProjectionMatrix();
+	
+	FSceneViewProjectionData projData;
+	ULocalPlayer* LocalPlayer = portalController->GetLocalPlayer();
+	CHECK_DESTROY(LogPortal, !LocalPlayer, "UpdatePortalView: Portal player class couldn't be found in the portal %s.", *GetName());
+	LocalPlayer->GetProjectionData(LocalPlayer->ViewportClient->Viewport, EStereoscopicPass::eSSP_FULL, projData);
+	
+	portalCapture->CustomProjectionMatrix = projData.ProjectionMatrix;
 
 	// Get reference to player camera.
 	UCameraComponent* playerCamera = portalPawn ? portalPawn->camera : portalCharacter->camera;
@@ -391,13 +397,18 @@ void APortal::UpdatePortalView()
 
 		// Use-full for debugging convert transform to target function on the camera.
 		if (debugCameraTransform) DrawDebugBox(GetWorld(), recursiveCamLoc, FVector(10.0f), recursiveCamRot.Quaternion(), FColor::Red, false, 0.05f, 0.0f, 2.0f);
-
+		
 		// Set portal to not be rendered if its the first recursion event.
 		// NOTE: Caps off the end so theres no visual glitches.
-		if (i == recursionAmount) portalMesh->SetVisibility(false);
-
-		// Update the portal scene capture to render it to the RT.
-		portalCapture->CaptureScene();
+		if (i == recursionAmount)
+		{
+			portalMesh->SetVisibility(false);
+		}
+		else
+		{
+			// Update the portal scene capture to render it to the RT.
+			portalCapture->CaptureScene();	
+		}
 
 		// Set portal to be rendered for next recursion.
 		if (i == recursionAmount) portalMesh->SetVisibility(true);
