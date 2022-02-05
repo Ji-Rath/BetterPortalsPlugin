@@ -119,7 +119,11 @@ public:
 	APortal* pTargetPortal;
 
 	/* Is this portal active? NOTE: Currently does nothing but is true when its being updated. */
-	bool active; 
+	bool active;
+
+	/* The portals render target texture. */
+	UPROPERTY(BlueprintReadOnly, Category = "Portal")
+	class UTextureRenderTarget2D* renderTarget; 
 
 protected:
 
@@ -134,14 +138,6 @@ protected:
 	/* The portal character if the pawn isn't being used. */
 	UPROPERTY()
 	class APortalCharacter* portalCharacter;
-
-	/* The portals render target texture. */
-	UPROPERTY()
-	class UCanvasRenderTarget2D* renderTarget; 
-
-	/* The performance render targets used when latePortalUpdate is being used. */
-	UPROPERTY()
-	TArray<UCanvasRenderTarget2D*> renderTargets; 
 
 	/* The portals dynamic material instance. */
 	UPROPERTY()

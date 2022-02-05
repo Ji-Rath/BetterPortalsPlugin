@@ -104,7 +104,7 @@ void APortal::Setup()
 
 	// Create a render target for this portal and its dynamic material instance. Then check if it has been successfully created.
 	CreatePortalTexture();
-	CHECK_DESTROY(LogPortal, (!renderTarget || !portalMaterial), "render target or portal material was null and could not be created in the portal class %s.", *GetName());
+	CHECK_DESTROY(LogPortal, (!renderTarget/* || !portalMaterial*/), "render target or portal material was null and could not be created in the portal class %s.", *GetName());
 
 	// Register the secondary post physics tick function in the world on level start.
 	physicsTick.bCanEverTick = true;
@@ -179,7 +179,7 @@ void APortal::Tick(float DeltaTime)
 	if (initialised)
 	{
 		// Clear portal information.
-		portalMaterial->SetScalarParameterValue("ScaleOffset", 0.0f);
+		//portalMaterial->SetScalarParameterValue("ScaleOffset", 0.0f);
 		ClearPortalView();
 
 		// If the portal is active.
@@ -192,7 +192,7 @@ void APortal::Tick(float DeltaTime)
 			if (LocationInsidePortal(portalPawn ? portalPawn->camera->GetComponentLocation() : portalCharacter->camera->GetComponentLocation()))
 			{
 				// Update world offset to prevent clipping.
-				portalMaterial->SetScalarParameterValue("ScaleOffset", 1.0f);
+				//portalMaterial->SetScalarParameterValue("ScaleOffset", 1.0f);
 			}
 		}
 	}
@@ -318,11 +318,13 @@ void APortal::CreatePortalTexture()
 
 	// Create new render texture.
 	renderTarget = nullptr;
-	renderTarget = UCanvasRenderTarget2D::CreateCanvasRenderTarget2D(GetWorld(), UCanvasRenderTarget2D::StaticClass(), viewportX, viewportY);
+	renderTarget = NewObject<UTextureRenderTarget2D>();
+	renderTarget->InitCustomFormat(viewportX, viewportY, PF_FloatRGBA, false);
+	//renderTarget = UTextureRenderTarget2D::CreateCanvasRenderTarget2D(GetWorld(), UCanvasRenderTarget2D::StaticClass(), viewportX, viewportY);
 
 	// Create the dynamic material instance for the portal mesh to show the render texture.
-	portalMaterial = portalMesh->CreateDynamicMaterialInstance(0, portalMaterialInstance);
-	portalMaterial->SetTextureParameterValue("RT_Portal", renderTarget);
+	//portalMaterial = portalMesh->CreateDynamicMaterialInstance(0, portalMaterialInstance);
+	//portalMaterial->SetTextureParameterValue("RT_Portal", renderTarget);
 
 	// Assign the Render Target
 	portalCapture->TextureTarget = renderTarget;
@@ -338,7 +340,7 @@ void APortal::UpdatePortalResolution(float PercentRes)
 		viewportX *= PercentRes;
 		viewportY *= PercentRes;
 		renderTarget->ResizeTarget(viewportX, viewportY);
-		portalMaterial->SetTextureParameterValue("RT_Portal", renderTarget);
+		//portalMaterial->SetTextureParameterValue("RT_Portal", renderTarget);
 	}
 	
 }
@@ -420,11 +422,11 @@ void APortal::UpdateWorldOffset()
 	// If the camera is within the portal box.
 	if (LocationInsidePortal(portalPawn ? portalPawn->camera->GetComponentLocation() : portalCharacter->camera->GetComponentLocation()))
 	{
-		portalMaterial->SetScalarParameterValue("ScaleOffset", 1.0f);
+		//portalMaterial->SetScalarParameterValue("ScaleOffset", 1.0f);
 	}
 	else
 	{
-		portalMaterial->SetScalarParameterValue("ScaleOffset", 0.0f);
+		//portalMaterial->SetScalarParameterValue("ScaleOffset", 0.0f);
 	}
 }
 
